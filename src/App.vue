@@ -1,20 +1,15 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import GestionVenta from "./components/GestionVenta.vue"
+import Home from "./components/Home.vue"
+import Vendedor from "./components/Vendedor.vue"
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
-  </main>
+    <Home/>
+    <Vendedor/>
+    <GestionVenta/>
+  </main> 
 </template>
 
 <style>
