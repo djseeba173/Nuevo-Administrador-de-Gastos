@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h2> Home </h2> 
-  </div>    
+      Error 404 Not Found
+  </div>      
 </template>
 
 <script>

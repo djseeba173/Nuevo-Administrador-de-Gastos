@@ -1,6 +1,7 @@
 <template>
   <div>
-      <h2> Home </h2> 
+     Usuario
+     {{$route.params.id}} 
   </div>    
 </template>
 

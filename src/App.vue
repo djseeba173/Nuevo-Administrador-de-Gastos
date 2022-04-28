@@ -1,14 +1,14 @@
 <script setup>
-import GestionVenta from "./components/GestionVenta.vue"
-import Home from "./components/Home.vue"
-import Vendedor from "./components/Vendedor.vue"
 </script>
 
 <template>
   <main>
-    <Home/>
-    <Vendedor/>
-    <GestionVenta/>
+    <p>
+      <router-link to="/">Go to Home</router-link> |
+      <router-link to="/vendedor">Go to Vendedor</router-link> |
+      <router-link to="/gestion_ventas">Go to Gestion Ventas</router-link> |
+    </p>
+    <router-view></router-view>
   </main> 
 </template>
 
