@@ -4,9 +4,9 @@
 <template>
   <main>
     <p>
-      <router-link to="/">Go to Home</router-link> |
-      <router-link to="/vendedor">Go to Vendedor</router-link> |
-      <router-link to="/gestion_ventas">Go to Gestion Ventas</router-link> |
+      <router-link to="/">Home</router-link> |
+      <router-link to="/creargasto"> Create Gasto</router-link> |
+      <router-link to="/agregarsueldo"> Agregar Sueldo </router-link> |
     </p>
     <router-view></router-view>
   </main> 

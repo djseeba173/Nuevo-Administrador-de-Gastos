@@ -1,6 +1,8 @@
 <template>
   <div>
-      <h2> Gestion Venta </h2> 
+      <h2> Aca agregas tu sueldovich </h2> 
+      <input />
+      <button> Agregar </button>
   </div>   
 </template>
 

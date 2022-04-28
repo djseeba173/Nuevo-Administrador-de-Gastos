@@ -1,14 +1,14 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import Home from "../components/Home.vue"
-import Vendedor from "../components/Vendedor.vue"
-import GestionVenta from "../components/GestionVenta.vue"
+import CrearGasto from "../components/CrearGasto.vue"
+import AgregarSueldo from "../components/AgregarSueldo.vue"
 import Usuario from "../components/Usuario.vue"
 import NotFound from "../components/NotFound.vue"
 
 const routes = [
     {path: '/', component: Home},
-    {path: '/vendedor', component: Vendedor},
-    {path: '/gestion_ventas', component: GestionVenta},
+    {path: '/creargasto', component: CrearGasto},
+    {path: '/agregarsueldo', component: AgregarSueldo},
     {path: '/usuario/:id', component: Usuario},
     {path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound}
 ]
