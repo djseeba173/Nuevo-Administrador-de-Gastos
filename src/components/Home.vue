@@ -1,26 +1,23 @@
 <template>
   <div>
-      <h4> Su sueldo es: {{sueldo}} </h4>  
+      <h2> {{this.sueldo}} </h2>
       {{ mostrar()}}
   </div>        
 </template>
 
 <script>
 import { useStore } from '../store/storeGasto.js'
-import { useStore } from '../store/storeSueldo.js'
-//const traigoSueldo = import { useStore } from '../store/storeSueldo.js';
 import { storeToRefs } from 'pinia'
 export default {
   setup() {
     const store = useStore();
-    const store2 = useStore2();
-    const { sueldo } = storeToRefs(store2);
     const { listaGastos } = storeToRefs(store);
+    const { sueldo } = storeToRefs(store);
     const { today } = storeToRefs(store);
 
     return {
       // you can return the whole store instance to use it in the template
-      store, listaGastos,sueldo //,today
+      store, listaGastos, sueldo //,today
     }
   },
   data(){

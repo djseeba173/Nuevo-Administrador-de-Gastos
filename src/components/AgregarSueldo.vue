@@ -1,14 +1,13 @@
 <template>
   <div>
       <h2> Aca agregas tu sueldovich </h2> 
-      <input type="number" v-model="sueldo.sueldo" />
+      <input type="number" v-model="salario.sueldo" />
       <button @click="agregar" > Agregar </button>
-      <p> Tu sueldo de mierda es: {{ sueldo }} </p>
   </div>   
 </template>
 
 <script>
-import { useStore } from '../store/storeSueldo.js'
+import { useStore } from '../store/storeGasto.js'
 import { storeToRefs } from 'pinia'
 export default {
   setup() {
@@ -22,13 +21,13 @@ export default {
   },
   data(){
       return{
-          sueldo : {sueldo: 0}
+          salario : {sueldo: 0}
       }
 
   },
   methods: {
       agregar() {
-          this.store.agregarSueldo({...this.producto});
+          this.store.agregarSueldo({...this.salario});
           alert("Se agregó de manera correcta")
       },
       mostrar(){
