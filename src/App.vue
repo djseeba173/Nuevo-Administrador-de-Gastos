@@ -3,11 +3,12 @@
 
 <template>
   <main>
+    <h2> AdministradORT </h2>
+    <br>
     <p>
       <router-link to="/">Home</router-link> |
       <router-link to="/creargasto"> Create Gasto</router-link> |
-      <router-link to="/agregarsueldo"> Agregar Sueldo </router-link> 
-      <router-link to="/carritocompras"> Carrito de Compras </router-link> |
+      <router-link to="/agregarsueldo"> Agregar Sueldo </router-link>
     </p>
     <router-view></router-view>
   </main> 

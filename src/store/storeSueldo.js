@@ -2,13 +2,12 @@ import {defineStore} from 'pinia';
 
 export const useStore = defineStore('main',{
     state: () =>{
-        return {listaCompras: []}
+        return {sueldo: 0}
     },
 
     actions: {
-        agregarCompra(obj){
-            this.listaCompras.push(obj)
-            console.log(obj)
+        agregarSueldo(obj){
+            this.sueldo = obj
         },
         
     }

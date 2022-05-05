@@ -4,14 +4,13 @@ import CrearGasto from "../components/CrearGasto.vue"
 import AgregarSueldo from "../components/AgregarSueldo.vue"
 import Usuario from "../components/Usuario.vue"
 import NotFound from "../components/NotFound.vue"
-import CarritoCompras from "../components/CarritoCompras.vue"
+
 
 const routes = [
     {path: '/', component: Home},
     {path: '/creargasto', component: CrearGasto},
     {path: '/agregarsueldo', component: AgregarSueldo},
     {path: '/usuario/:id', component: Usuario},
-    {path: '/carritocompras', component: CarritoCompras},
     {path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound}
 ]
 
