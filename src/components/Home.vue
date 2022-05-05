@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2> {{this.sueldo}} </h2>
+      <h2> {{`| Sueldo: ${this.sueldo.sueldo} |`}} </h2>
       {{ mostrar()}}
   </div>        
 </template>
@@ -32,7 +32,7 @@ export default {
       },
       mostrar(){
           return this.listaGastos.map(obj => `Importe: ${obj.importe} | Descripcion: ${obj.desc} | Categoria: ${obj.categoria} | Tiempo: ${obj.tiempo}`);
-      }
+      },
   }
 }
 </script>
