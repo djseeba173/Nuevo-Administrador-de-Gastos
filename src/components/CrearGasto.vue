@@ -33,7 +33,7 @@ export default {
   },
   methods: {
       agregar() {
-        if (this.producto.importe === 0) {
+        if (this.producto.importe <= 0) {
           alert('No se puede ingresar un importe nulo')
         } else {
           this.store.agregarGasto({...this.producto});
