@@ -28,7 +28,6 @@ export default {
   methods: {
       agregar() {
           this.store.agregarSueldo({...this.salario});
-          alert("Se agregó de manera correcta")
       },
       mostrar(){
           return "Sueldo: " + this.sueldo;

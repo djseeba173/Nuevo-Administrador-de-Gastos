@@ -34,7 +34,6 @@ export default {
   methods: {
       agregar() {
           this.store.agregarGasto({...this.producto});
-          alert("Se agregó de manera correcta")
       }
   }
 }

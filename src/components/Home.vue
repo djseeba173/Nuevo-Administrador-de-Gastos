@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div>
-      <h2> {{mostrarSueldo()}} </h2> 
+      <h2 v-bind:style="color"> {{mostrarSueldo()}} </h2> 
+      <button @click="checkColor()" > colorCheck </button>
     </div>
     <div> 
       <ul>
@@ -31,7 +32,8 @@ export default {
   data(){
       //let hora = this.today.getHours()
       return{
-          producto : {importe:0, desc:'', categoria: ''}//, tiempo: hora} //le quisimos agregar tiempo pero no funca UwU :3
+          producto : {importe:0, desc:'', categoria: ''}, //, tiempo: hora} //le quisimos agregar tiempo pero no funca UwU :3 
+          color: {color: 'green'},
       }
 
   },
@@ -39,13 +41,13 @@ export default {
       agregar() {
           this.store.agregarGasto({...this.producto});
       },
-      mostrar(){
-          let array = [];
-          array.push(this.listaGastos.map(obj => `| Importe: ${obj.importe} | Descripcion: ${obj.desc} | Categoria: ${obj.categoria} |`)) //| Tiempo: ${obj.tiempo}`);
-
-      },
       mostrarSueldo(){
           return this.sueldo.sueldo === undefined ? '0' : `| Sueldo: ${this.sueldo.sueldo} | `;
+      },
+      checkColor(){
+          if(this.sueldo.sueldo <= 0){
+            this.color = {color: 'red'}; 
+          }
       },
   }
 }

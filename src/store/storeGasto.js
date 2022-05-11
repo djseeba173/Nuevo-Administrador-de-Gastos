@@ -12,7 +12,6 @@ export const useStore = defineStore('main',{
         },
         agregarSueldo(numero){
             this.sueldo = numero;
-            alert("estoy agregando")
         }
         
     }
