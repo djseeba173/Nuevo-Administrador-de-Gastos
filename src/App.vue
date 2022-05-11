@@ -7,7 +7,7 @@
     <br>
     <p>
       <router-link to="/">Home</router-link> |
-      <router-link to="/creargasto"> Crear Gasto</router-link> |
+      <router-link to="/agregargasto"> Agregar Gasto</router-link> |
       <router-link to="/agregarsueldo"> Agregar Sueldo </router-link>
     </p>
     <router-view></router-view>

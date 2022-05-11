@@ -1,13 +1,13 @@
 <template>
   <div>
-      <h2> Crear Gasto </h2> 
+      <h2> Agregar Gasto: </h2> 
       <p>
         Importe <input type="number" v-model="producto.importe" /> |
         Descripcion <input type="text" v-model="producto.desc" /> |
-        Categoria <input type="text" v-model="producto.categoria" /> |
+        Categoria <input type="text" v-model="producto.categoria" />
       </p>
 
-      <button @click="agregar" > Agregar </button>
+      <button @click="agregar"> Agregar </button>
       
   </div>    
 </template>
@@ -33,10 +33,14 @@ export default {
   },
   methods: {
       agregar() {
+        if (this.producto.importe === 0) {
+          alert('No se puede ingresar un importe nulo')
+        } else {
           this.store.agregarGasto({...this.producto});
+    };
+        }
       }
   }
-}
 </script>
 
 <style>

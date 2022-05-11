@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2> Aca agregas tu sueldovich </h2> 
+      <h2> Ingrese su sueldo: </h2> 
       <input type="number" v-model="salario.sueldo" />
       <button @click="agregar" > Agregar </button>
   </div>   

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div>
-      <h2 v-bind:style="color"> {{mostrarSueldo()}} </h2> 
-      <button @click="checkColor()" > colorCheck </button>
+      <h2 v-bind:style="color"> {{mostrarSueldo()}} {{checkColor()}}</h2>
     </div>
+    <br>
     <div> 
       <ul>
         <li :key="obj.key" v-for="obj in listaGastos">
