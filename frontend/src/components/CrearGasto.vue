@@ -15,6 +15,7 @@
 <script>
 import { useStore } from '../store/storeGasto.js'
 import { storeToRefs } from 'pinia'
+import apiGestionGastos from '../services/apiGestionGastos.js'
 export default {
   setup() {
     const store = useStore();

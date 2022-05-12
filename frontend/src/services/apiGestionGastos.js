@@ -13,6 +13,6 @@ export default {
         return apiClient.get('/api/getlista')
     },
     setGestionGastos(gestionGasto){
-        return apiClient.post('/api/setgestiongasto')
+        return apiClient.post('/api/setgestiongasto', gestionGasto)
     }
 }

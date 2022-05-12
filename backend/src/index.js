@@ -24,7 +24,9 @@ app.get('/api/getlista', (req, res) => {
   })
 
 app.post('/api/setgestiongasto', (req, res) => {
-  console.log(req)
+  console.log(req.body)
+  lista.push(req.body)
+  res.json(req.body)
 })
 
 
