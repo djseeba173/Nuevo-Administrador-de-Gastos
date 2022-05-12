@@ -29,6 +29,13 @@ app.post('/api/setgestiongasto', (req, res) => {
   res.json(req.body)
 })
 
+app.delete('/api/deletegestiongasto/:id', (req, res) => {
+  const listaDesc = lista.map(e => {return e.desc})
+  const indice = listaDesc.indexOf(req.params.codigo)
+  lista.splice(indice, 1)
+  res.json(req.params)
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

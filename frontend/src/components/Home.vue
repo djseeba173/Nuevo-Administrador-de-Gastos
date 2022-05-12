@@ -12,6 +12,7 @@
         </li>
         <li :key="prod.key" v-for="prod in this.miLista" >
           {{ prod.importe }} - {{ prod.desc }} - {{ prod.categoria }}
+          <button @click="borrarGestion(prod.desc)" > Anular Gestion </button>
         </li>
       </ul>
     </div>
@@ -67,16 +68,18 @@ export default {
             this.color = {color: 'red'}; 
           }
       },
-      // async traerDatos(){
-      //   try{
-      //     const rta = await apiGestionGastos.getGestionGastos();
-      //     //console.log(rta.data);
-      //     this.miLista = rta.data;
-      //   } catch(error){
-      //     console.log(error);
-      //     this.mensajeError = 'Se produjo alto error en la conexion brodi'
-      //   }
-      // }
+      async borrarGestion(descGasto){
+          try{
+            const rta = await apiGestionGastos.deleteGestionGastos(descGasto)
+            const listaDesc = this.miLista.map(e => {return e.desc})
+            const indice = listaDesc.indexOf(descGasto)
+            this.miLista.splice(indice, 1)
+          }catch(error){
+            console.log(error)
+          }
+          
+          
+      }
   }
 }
 </script>

@@ -16,6 +16,6 @@ export default {
         return apiClient.post('/api/setgestiongasto', gestionGasto)
     },
     deleteGestionGastos(id){
-        return apiClient.delete('/api/deleteestionasto' + id);
+        return apiClient.delete('/api/deletegestiongasto/' + id);
     }
 }
