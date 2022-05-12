@@ -2,12 +2,16 @@
   <div id="app">
     <div>
       <h2 v-bind:style="color"> {{mostrarSueldo()}} {{checkColor()}}</h2>
+      <p> {{mensajeError}} </p>
     </div>
     <br>
     <div> 
       <ul>
         <li :key="obj.key" v-for="obj in listaGastos">
           {{ obj.importe }} - {{ obj.desc }} - {{ obj.categoria }}
+        </li>
+        <li :key="prod.key" v-for="prod in this.miLista" >
+          {{ prod.importe }} - {{ prod.desc }} - {{ prod.categoria }}
         </li>
       </ul>
     </div>
@@ -17,6 +21,8 @@
 <script>
 import { useStore } from '../store/storeGasto.js'
 import { storeToRefs } from 'pinia'
+import apiGestionGastos from '../services/apiGestionGastos.js'
+
 export default {
   setup() {
     const store = useStore();
@@ -34,8 +40,20 @@ export default {
       return{
           producto : {importe:0, desc:'', categoria: ''}, //, tiempo: hora} //le quisimos agregar tiempo pero no funca UwU :3 
           color: {color: 'green'},
+          miLista: [],
+          mensajeError: '',
       }
 
+  },
+  created: async function () {
+    try{
+          const rta = await apiGestionGastos.getGestionGastos();
+          //console.log(rta.data);
+          this.miLista = rta.data;
+        } catch(error){
+          console.log(error);
+          this.mensajeError = 'Se produjo alto error en la conexion brodi'
+        }
   },
   methods: {
       agregar() {
@@ -49,6 +67,16 @@ export default {
             this.color = {color: 'red'}; 
           }
       },
+      // async traerDatos(){
+      //   try{
+      //     const rta = await apiGestionGastos.getGestionGastos();
+      //     //console.log(rta.data);
+      //     this.miLista = rta.data;
+      //   } catch(error){
+      //     console.log(error);
+      //     this.mensajeError = 'Se produjo alto error en la conexion brodi'
+      //   }
+      // }
   }
 }
 </script>
