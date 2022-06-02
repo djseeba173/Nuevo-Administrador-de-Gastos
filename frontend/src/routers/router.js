@@ -29,6 +29,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 
     const login = localStorage.getItem('usuario')
+    const obj = JSON.parse(login)
+    console.log(obj);
     if(to.matched.some(record => record.meta.requiresAuth) && !login){
         next('/')
     }else{

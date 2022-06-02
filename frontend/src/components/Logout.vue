@@ -12,16 +12,16 @@ import { storeToRefs } from "pinia";
 export default {
   setup() {
     const store = usuarioStore();
-    const { userLogout } = storeToRefs(store);
+    // const { userLogout } = storeToRefs(store);
 
     return {
       store,
-      userLogout,
+      // userLogout,
     };
   },
   methods:{
       logout(){
-          this.userLogout()
+          this.store.userLogout()
           this.$router('/login')
       }
   }

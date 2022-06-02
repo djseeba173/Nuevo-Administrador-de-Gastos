@@ -61,10 +61,10 @@ export default {
           this.store.agregarGasto({...this.producto});
       },
       mostrarSueldo(){
-          return this.sueldo.sueldo === undefined ? '0' : `| Sueldo: ${this.sueldo.sueldo} | `;
+          return this.sueldo === undefined ? '0' : `| Sueldo: ${this.sueldo} | `;
       },
       checkColor(){
-          if(this.sueldo.sueldo <= 0){
+          if(this.sueldo <= 0){
             this.color = {color: 'red'}; 
           }
       },
