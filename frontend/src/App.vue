@@ -1,18 +1,41 @@
-<script setup>
+<script>
+import { usuarioStore } from './store/usuarioStore';
+import { storeToRefs } from 'pinia';
+
+export default{
+  setup(){
+    const store = usuarioStore();
+    const { estaLogeado } = storeToRefs(store)
+    return{
+      store, estaLogeado
+    }
+  }
+}
 </script>
 
 <template>
   <main>
+    <div v-if="!estaLogeado">
+      <p>
+        <router-link to="/login">Login</router-link> |
+      </p>
+    </div>
     <h2> AdministradORT </h2>
     <br>
+    <div v-if="estaLogeado" >
     <p>
       <router-link to="/">Home</router-link> |
       <router-link to="/agregargasto"> Agregar Gasto</router-link> |
       <router-link to="/agregarsueldo"> Agregar Sueldo </router-link>
+      <router-link to="/logout"> Logout </router-link>
     </p>
+
+    </div>
     <router-view></router-view>
   </main> 
 </template>
+
+
 
 <style>
 @import './assets/base.css';
