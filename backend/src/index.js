@@ -27,14 +27,24 @@ app.post('/api/login', (req, res)=> {
 // simulo una base de datos en memoria
 
 const lista = [];
+const sueldo = 0;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/api/getsueldo', (req, res) =>{
+  res.json(sueldo)
+})
+
 app.get('/api/getlista', (req, res) => {
     res.json(lista)
-  })
+})
+
+app.post('/api/setsueldo', (req, res) => {
+  sueldo = req.body;
+  res.json(req.body)
+})
 
 app.post('/api/setgestiongasto', (req, res) => {
   console.log(req.body)

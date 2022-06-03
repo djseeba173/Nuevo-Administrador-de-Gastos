@@ -2,22 +2,21 @@
   <div>
       <h2> Ingrese su sueldo: </h2> 
       <input type="number" v-model="salario.sueldo" />
-      <button> Agregar </button>
+      <button @click="meter" > Agregar </button>
   </div>   
 </template>
 
 <script>
 import { useStore } from '../store/storeGasto.js'
 import { storeToRefs } from 'pinia'
+import apiGestionSueldo from '../services/apiGestionSueldo.js';
 export default {
   setup() {
     const store = useStore();
-    // const { agregarSueldoStore } = store;
-    const sueldo = storeToRefs(store);
 
     return {
       // you can return the whole store instance to use it in the template
-      store, sueldo
+      store
     }
   },
   data(){
@@ -27,8 +26,17 @@ export default {
 
   },
   methods: {
-      mostrar(){
-          return "Sueldo: " + this.sueldo;
+      async mostrar(){
+          return "Sueldo: " + await apiGestionSueldo.getGestionSueldo();
+      },
+      async meter(){
+        try{
+          const obj = {...this.salario}
+          const rta = await apiGestionSueldo.setGestionSueldo(obj)
+          console.log("AQUI: " + rta)
+        }catch (e){
+          console.log(e)
+        }
       }
   }
 }

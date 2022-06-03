@@ -30,7 +30,8 @@ router.beforeEach((to, from, next) => {
 
     const login = localStorage.getItem('usuario')
     const obj = JSON.parse(login)
-    console.log(obj);
+    console.log('aqui:' + obj);
+
     if(to.matched.some(record => record.meta.requiresAuth) && !login){
         next('/')
     }else{
