@@ -17,7 +17,7 @@ export default{
   <main>
     <div v-if="!estaLogeado">
       <p>
-        <router-link to="/login">Login</router-link> |
+        <router-link to="/login">Login</router-link>
       </p>
     </div>
     <h2> AdministradORT </h2>
@@ -26,7 +26,7 @@ export default{
     <p>
       <router-link to="/">Home</router-link> |
       <router-link to="/agregargasto"> Agregar Gasto</router-link> |
-      <router-link to="/agregarsueldo"> Agregar Sueldo </router-link>
+      <router-link to="/agregarsueldo"> Agregar Sueldo </router-link>|
       <router-link to="/logout"> Logout </router-link>
     </p>
 
@@ -63,6 +63,7 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
 }
+
 
 @media (hover: hover) {
   a:hover {

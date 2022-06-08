@@ -1,14 +1,13 @@
 <template>
   <div>
       <h2> Ingrese su sueldo: </h2> 
-      <input type="number" v-model="salario.sueldo" />
+      <input type="number" v-model="this.sueldo" />
       <button @click="meter" > Agregar </button>
   </div>   
 </template>
 
 <script>
 import { useStore } from '../store/storeGasto.js'
-import { storeToRefs } from 'pinia'
 import apiGestionSueldo from '../services/apiGestionSueldo.js';
 export default {
   setup() {
@@ -21,19 +20,15 @@ export default {
   },
   data(){
       return{
-          salario : {sueldo: 0}
+          sueldo : 0
       }
 
   },
   methods: {
-      async mostrar(){
-          return "Sueldo: " + await apiGestionSueldo.getGestionSueldo();
-      },
       async meter(){
         try{
-          const obj = {...this.salario}
+          const obj = {sueldo: this.sueldo}
           const rta = await apiGestionSueldo.setGestionSueldo(obj)
-          console.log("AQUI: " + rta)
         }catch (e){
           console.log(e)
         }

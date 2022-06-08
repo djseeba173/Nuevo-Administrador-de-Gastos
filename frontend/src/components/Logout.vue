@@ -21,8 +21,9 @@ export default {
   },
   methods:{
       logout(){
+          debugger
           this.store.userLogout()
-          this.$router('/login')
+          this.$router.go('/login')
       }
   }
 };

@@ -13,7 +13,7 @@ const routes = [
     {path: '/agregargasto', component: CrearGasto,  meta: {requiresAuth: true}},
     {path: '/agregarsueldo', component: AgregarSueldo,  meta: {requiresAuth: true}},
     {path: '/usuario/:id', component: Usuario,  meta: {requiresAuth: true}},
-    {path: '/logout', component: Logout, meta: {requiresAuth: true}},
+    {path: '/logout', component: Logout, },
     //public
 
     {path: '/login', component: Login},
@@ -28,13 +28,16 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 
+    debugger
     const login = localStorage.getItem('usuario')
     const obj = JSON.parse(login)
-    console.log('aqui:' + obj);
-
-    if(to.matched.some(record => record.meta.requiresAuth) && !login){
+    // console.log('aqui:' + obj);
+    debugger
+    if(to.matched.some(record => record.meta.requiresAuth) && !login ){
+        debugger
         next('/')
     }else{
+        debugger
         next()
     }
 

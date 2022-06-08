@@ -21,9 +21,13 @@ export const usuarioStore = defineStore('main',{
             }
         },
         userLogout(){
+            debugger
             this.estaLogeado = false
-            location.reload();
+            debugger
+            // location.reload();
+            debugger
             localStorage.removeItem('usuario')
+            debugger
         }
     },
 })
