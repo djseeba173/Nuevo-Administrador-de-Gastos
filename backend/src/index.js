@@ -8,23 +8,45 @@ app.use(bodyParser.json())
 app.use(cors())
 const port = 3001;
 
+// simulo un usuario
+// buscar en la base de datos 
+const usuario = {email: 'admin@test.com', password: '123456'}
+
+app.post('/api/login', (req, res)=> {
+  if(req.body && (req.body.email == usuario.email && req.body.password == usuario.password)){
+    res.status(200).json(req.body)
+  }else{
+    res.status(401).json({mensaje: 'No autenticado'})
+  }
+
+  // console.log(req.body);
+  // res.json(req.body)
+})
+
+
 // simulo una base de datos en memoria
 
-const lista = [
-    {importe:150, desc:'Changuchito', categoria: 'Comida'},
-    {importe: 300, desc: 'Gaseosa', categoria: 'Bebida'},
-];
+const lista = [];
+let sueldo = {};
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/api/getsueldo', (req, res) =>{
+  res.json(sueldo)
+})
+
 app.get('/api/getlista', (req, res) => {
     res.json(lista)
-  })
+})
+
+app.post('/api/setsueldo', (req, res) => {
+  sueldo = req.body;
+  res.json(req.body)
+})
 
 app.post('/api/setgestiongasto', (req, res) => {
-  console.log(req.body)
   lista.push(req.body)
   res.json(req.body)
 })

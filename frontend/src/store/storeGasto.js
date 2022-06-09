@@ -2,17 +2,16 @@ import {defineStore} from 'pinia';
 
 export const useStore = defineStore('main',{
     state: () =>{
-        var today = new Date();
-        return {listaGastos: [], sueldo: 0}
+        return {sueldo: 0, listaGastos: []}
     },
 
     actions: {
+        ponerSueldo(num){
+            this.sueldo = num;
+        },
         agregarGasto(obj){
             this.listaGastos.push(obj)
         },
-        agregarSueldo(numero){
-            this.sueldo = numero;
-        }
         
     }
 })
