@@ -15,6 +15,7 @@ export default{
 
 <template>
   <main>
+    
     <div v-if="!estaLogeado">
       <p>
         <router-link to="/login">Login</router-link>
@@ -22,7 +23,7 @@ export default{
     </div>
     <h2> AdministradORT </h2>
     <br>
-    <div v-if="estaLogeado" >
+    <div v-if="estaLogeado">
     <p>
       <router-link to="/">Home</router-link> |
       <router-link to="/agregargasto"> Agregar Gasto</router-link> |
@@ -39,11 +40,17 @@ export default{
 
 <style>
 @import './assets/base.css';
-
+body{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
 
   font-weight: normal;
 }
@@ -64,39 +71,4 @@ a,
   transition: 0.4s;
 }
 
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-}
 </style>

@@ -3,7 +3,7 @@
     <h2>Login</h2>
     <form @submit.prevent="login">
       Email: <input type="text" v-model="usuario.email"/> 
-      Password: <input type="text" v-model="usuario.password"  />
+      Password: <input type="password" v-model="usuario.password"  />
       <button type="sumbit">Ingresar</button>
       {{ msgError.msg}}
     </form>
