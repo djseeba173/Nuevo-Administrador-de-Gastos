@@ -2,7 +2,7 @@
   <div>
       <h2> Ingrese su sueldo: </h2> 
       <input type="number" v-model="this.sueldo" />
-      <button @click="meter" > Agregar </button>
+      <button @click="meter"> Agregar </button>
   </div>   
 </template>
 
@@ -38,5 +38,25 @@ export default {
 </script>
 
 <style>
+button{
+  margin-left:3px;
+  background-color: rgb(  0, 189, 126); 
+  border:none; 
+  border-radius: 5px; 
+  font-size: 14px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: aquamarine;
+}
+
+input{
+  background-color: rgb(159, 159, 159);
+}
+
+#miP{
+  width: 100px;
+}
 
 </style>

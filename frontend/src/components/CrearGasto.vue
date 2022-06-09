@@ -1,13 +1,18 @@
 <template>
   <div>
-      <h2> Agregar Gasto: </h2> 
-      <p>
-        Importe <input type="number" v-model="producto.importe" /> |
-        Descripcion <input type="text" v-model="producto.desc" /> |
-        Categoria <input type="text" v-model="producto.categoria" />
-      </p>
-
-      <button @click="agregarGestionGasto"> Agregar </button>
+      <h2> Agregar Gasto </h2> 
+      <div class="container">
+        <div>
+          <p> Importe <input type="number" v-model="producto.importe" /> </p>
+        </div>
+        <div>
+          <p> Descripcion <input type="text" v-model="producto.desc" /> </p>
+        </div>
+        <div>
+          <p> Categoria <input type="text" v-model="producto.categoria" /> </p>
+        </div>
+      </div>
+        <button @click="agregarGestionGasto"> Agregar </button>
       
   </div>    
 </template>
@@ -27,6 +32,9 @@ export default {
     }
   },
   data(){
+    buttonStyle:{
+      
+    }
       return{
           producto : {importe:0, desc:'', categoria: ''},
           miLista: [],
@@ -58,5 +66,35 @@ export default {
 </script>
 
 <style>
+button{
+  margin-top: 7px;
+  margin-left:3px;
+  background-color: rgb(  0, 189, 126); 
+  border:none; 
+  border-radius: 5px; 
+  font-size: 14px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: aquamarine;
+}
+
+input{
+  background-color: rgb(159, 159, 159);
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container p, .container input{
+  margin: 2px;
+}
+
+
 
 </style>

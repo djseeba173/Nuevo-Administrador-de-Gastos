@@ -1,13 +1,11 @@
 <template>
   <div>
-    <h2>LogOut</h2>
-    <button @click="logout"> LogOut </button>
+    <button class="miBoton" @click="logout"> LogOut </button>
   </div>
 </template>
 
 <script>
 import { usuarioStore } from "../store/usuarioStore";
-import { storeToRefs } from "pinia";
 
 export default {
   setup() {
@@ -29,4 +27,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.miBoton{
+  margin-top: 20px;
+  font-size: 20px;
+  width: 150px;
+  height: 40px;
+}
+
+</style>
