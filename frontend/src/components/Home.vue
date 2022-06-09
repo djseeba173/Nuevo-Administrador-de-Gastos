@@ -5,13 +5,30 @@
       <p>{{ mensajeError }}</p>
     </div>
     <br />
-    <div>
+    <!-- <div>
       <ul>
         <li :key="prod.key" v-for="prod in this.miLista">
           {{ prod.importe }} - {{ prod.desc }} - {{ prod.categoria }}
           <button @click="borrarGestion(prod.desc, prod.importe)">Anular Gestion</button>
         </li>
       </ul>
+    </div> -->
+    <div>
+      <table>
+        <thead>
+          <th> Importe </th>
+          <th> Descripcion </th>
+          <th> Categoria </th>
+        </thead>
+        <tbody>
+          <tr :key="prod.key" v-for="prod in this.miLista">
+            <td> {{ prod.importe }} </td>
+            <td> {{ prod.desc }} </td>
+            <td> {{ prod.categoria }} </td>
+            <button @click="borrarGestion(prod.desc, prod.importe)">Anular Gestion</button>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -96,6 +113,10 @@ export default {
   text-align: center;
 }
 
+th, td{
+  margin: auto; 
+  border: 3px solid rgb(  0, 189, 126);
+}
 
 .elSueldo{
   margin-bottom: -20px;
