@@ -8,16 +8,17 @@ import Login from "../components/Login.vue"
 import Logout from "../components/Logout.vue"
 
 const routes = [
+    //public
+    {path: '/login', component: Login},
+    {path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound},
+    
     //privs
     {path: '/', component: Home, meta: {requiresAuth: true}},
     {path: '/agregargasto', component: CrearGasto,  meta: {requiresAuth: true}},
     {path: '/agregarsueldo', component: AgregarSueldo,  meta: {requiresAuth: true}},
     {path: '/usuario/:id', component: Usuario,  meta: {requiresAuth: true}},
     {path: '/logout', component: Logout, },
-    //public
-
-    {path: '/login', component: Login},
-    {path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound},
+    
 
 ]   
 

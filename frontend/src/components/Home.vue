@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="elSueldo">
-      <h2 class="miSueldo"  v-bind:style="color">{{   `Sueldo: ${this.sueldo}`}} </h2>
+      <h2 class="miSueldo"  v-bind:style="color">{{   `Sueldo: $${this.sueldo}`}} </h2>
       <p>{{ mensajeError }}</p>
     </div>
     <br />
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <tr :key="prod.key" v-for="prod in this.miLista">
-            <td> {{ prod.importe }} </td>
+            <td> ${{ prod.importe }} </td>
             <td> {{ prod.desc }} </td>
             <td> {{ prod.categoria }} </td>
             <button type="button" class="btn" style="margin-left: 10px" @click="borrarGestion(prod.desc, prod.importe)">Anular Gestion</button>
