@@ -14,11 +14,11 @@
       </ul>
     </div> -->
     <div>
-      <table>
+      <table class="table-striped">
         <thead>
-          <th> Importe </th>
-          <th> Descripcion </th>
-          <th> Categoria </th>
+          <th scope="col" > Importe </th>
+          <th scope="col" > Descripcion </th>
+          <th scope="col" > Categoria </th>
         </thead>
         <tbody>
           <tr :key="prod.key" v-for="prod in this.miLista">
