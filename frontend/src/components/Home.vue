@@ -14,7 +14,7 @@
       </ul>
     </div> -->
     <div>
-      <table class="table-striped">
+      <table>
         <thead>
           <th scope="col" > Importe </th>
           <th scope="col" > Descripcion </th>
@@ -25,10 +25,13 @@
             <td> {{ prod.importe }} </td>
             <td> {{ prod.desc }} </td>
             <td> {{ prod.categoria }} </td>
-            <button @click="borrarGestion(prod.desc, prod.importe)">Anular Gestion</button>
+            <button type="button" class="btn" style="margin-left: 10px" @click="borrarGestion(prod.desc, prod.importe)">Anular Gestion</button>
           </tr>
         </tbody>
       </table>
+
+      <!-- a button that undos the last gestion -->
+      <button type="button" class="btn" style="margin-left: 10px" @click="undoGestion">Undo Gestion</button>
     </div>
   </div>
 </template>
@@ -61,6 +64,7 @@ export default {
       miLista: [],
       mensajeError: "",
       sueldo: {},
+      historial: [],
     };
   },
   created: async function () {
@@ -98,12 +102,31 @@ export default {
         });
         const indice = listaDesc.indexOf(descGasto);
         this.sueldo += this.miLista[indice].importe
+        this.historial.push(this.miLista[indice])
         this.miLista.splice(indice, 1);
       } catch (error) {
         console.log(error);
       }
     },
-
+    async agregarGestionGasto(gasto) {
+      try{
+        const obj = gasto
+        this.miLista.push(obj)
+        const rta = await apiGestionGastos.setGestionGastos(obj);
+        console.log(rta);
+    } catch(error){
+      console.log(error);
+        this.mensajeError = 'Se produjo alto error en la conexion brodi'
+    }
+    },
+    async undoGestion() {
+      console.log(this.historial);
+      if(this.historial.length > 0){
+        const gasto = this.historial.pop()
+        await this.agregarGestionGasto(gasto)
+        this.sueldo -= gasto.importe
+      }
+    },
   },
 };
 </script>
